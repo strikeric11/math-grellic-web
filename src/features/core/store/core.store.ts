@@ -4,6 +4,8 @@ import type { StateCreator } from 'zustand';
 import type { Socket } from 'socket.io-client';
 import type { CoreSlice, ExActImageEdit } from '#/core/models/core.model';
 
+//
+
 export const createCoreSlice: StateCreator<CoreSlice, [], [], CoreSlice> = (
   set,
   get,
