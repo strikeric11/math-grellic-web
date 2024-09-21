@@ -58,7 +58,7 @@ export function registerTeacherUser(
 
     try {
       const user = await kyInstance.post(url, { json }).json();
-      console.log("user info 1");
+      console.log("user info 11");
       console.log(user);
       return transformToUser(user);
     } catch (error: any) {
