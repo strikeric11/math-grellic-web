@@ -196,7 +196,7 @@ export function transformToActivityCategory({
 
   console.log("transformedTypeStage: ", transformedTypeStage);
 
-  console.log("Before completions");
+  //console.log("Before completions");
 
   console.log("!completions: ", completions);
 
