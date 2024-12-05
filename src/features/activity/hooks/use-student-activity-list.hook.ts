@@ -39,6 +39,10 @@ export function useStudentActivityList(): Result {
           ? otherActivities.map((item: any) => transformToActivity(item))
           : [];
 
+        console.log("transformedFeaturedActivities: ", transformedFeaturedActivities);
+
+        console.log("transformedOtherActivities: ", transformedOtherActivities);
+
         return {
           featuredActivities: transformedFeaturedActivities,
           otherActivities: transformedOtherActivities,
