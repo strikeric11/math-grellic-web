@@ -29,6 +29,8 @@ export function useStudentActivityList(): Result {
       select: (data: any) => {
         const { featuredActivities, otherActivities } = data;
 
+        console.log("useStudentActivityList data: ", data);
+
         const transformedFeaturedActivities = featuredActivities?.length
           ? featuredActivities.map((item: any) => transformToActivity(item))
           : [];
