@@ -194,12 +194,14 @@ export function transformToActivityCategory({
 
   console.log("transformedTypeStage: ", transformedTypeStage);
 
+  console.log("completions: ", completions);
+
   const transformedCompletions = completions
     ? completions.map((completion: any) =>
         transformToActivityCategoryCompletion(completion),
       )
     : undefined;
-
+  //transformedCompletions problem
   console.log("transformedCompletions: ", transformedCompletions);
 
   return {
@@ -310,14 +312,30 @@ export function transformToActivityCategoryCompletion({
   activityCategory,
   student,
 }: any): Partial<ActivityCategoryCompletion> {
+
+  console.log("transformToActivityCategoryCompletion");
+  console.log("id: ", id);
+  console.log("createdAt: ", createdAt);
+  console.log("updatedAt: ", updatedAt);
+  console.log("submittedAt: ", submittedAt);
+  console.log("score: ", score);
+  console.log("timeCompletedSeconds: ", timeCompletedSeconds);
+  console.log("questionAnswers: ", questionAnswers);
+  console.log("activityCategory: ", activityCategory);
+  console.log("student: ", student);
+
   const transformedStudent = student
     ? ({ id: student.id } as StudentUserAccount)
     : undefined;
+
+  console.log("transformedStudent: ", transformedStudent);
 
   const transformedQuestionAnswers =
     questionAnswers?.map((answer: any) =>
       transformToActivityCategoryCompletionQuestionAnswer(answer),
     ) || [];
+
+  console.log("transformedQuestionAnswers: ", transformedQuestionAnswers);
 
   return {
     submittedAt: dayjs(submittedAt).toDate(),
