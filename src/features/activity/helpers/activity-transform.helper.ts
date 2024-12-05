@@ -194,7 +194,9 @@ export function transformToActivityCategory({
 
   console.log("transformedTypeStage: ", transformedTypeStage);
 
-  console.log("completions: ", completions);
+  console.log("!completions: ", completions);
+
+  console.log("completions type: ",typeof completions);
 
   const transformedCompletions = completions
     ? completions.map((completion: any) =>
