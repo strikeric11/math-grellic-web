@@ -156,6 +156,16 @@ export function getStudentActivityWithCompletionsBySlugAndCurrentStudentUser(
 ) {
   const { slug, exclude, include } = keys;
 
+  console.log("getStudentActivityWithCompletionsBySlugAndCurrentStudentUser");
+
+  console.log("slug: ", slug);
+
+  console.log("slug: ", exclude);
+
+  console.log("slug: ", include);
+
+  console.log("BASE_URL: ", BASE_URL);
+
   const queryFn = async (): Promise<any> => {
     const url = `${BASE_URL}/activities/${slug}`;
     const searchParams = generateSearchParams({ exclude, include });
@@ -164,6 +174,8 @@ export function getStudentActivityWithCompletionsBySlugAndCurrentStudentUser(
       const activity = await kyInstance.get(url, { searchParams }).json();
       return activity;
     } catch (error: any) {
+
+      console.log("getStudentActivityWithCompletionsBySlugAndCurrentStudentUser error: ", error);
       const apiError = await generateApiError(error);
       throw apiError;
     }
