@@ -107,6 +107,55 @@ export function transformToActivity({
   return transformedActivity;
 }
 
+// export function transformToActivityCategory({
+//   id,
+//   createdAt,
+//   updatedAt,
+//   level,
+//   randomizeQuestions,
+//   visibleQuestionsCount,
+//   questions,
+//   typePoint,
+//   typeTime,
+//   typeStage,
+//   completions,
+// }: any): ActivityCategory {
+//   const transformedQuestions =
+//     questions?.map((question: any) =>
+//       transformToActivityCategoryQuestion(question),
+//     ) || [];
+
+//   const transformedTypePoint = typePoint
+//     ? transformToActivityCategoryTypePoint(typePoint)
+//     : undefined;
+
+//   const transformedTypeTime = typeTime
+//     ? transformToActivityCategoryTypeTime(typeTime)
+//     : undefined;
+
+//   const transformedTypeStage = typeStage
+//     ? transformToActivityCategoryTypeStage(typeStage)
+//     : undefined;
+
+//   const transformedCompletions = completions
+//     ? completions.map((completion: any) =>
+//         transformToActivityCategoryCompletion(completion),
+//       )
+//     : undefined;
+
+//   return {
+//     level,
+//     randomizeQuestions,
+//     visibleQuestionsCount,
+//     questions: transformedQuestions,
+//     typePoint: transformedTypePoint,
+//     typeTime: transformedTypeTime,
+//     typeStage: transformedTypeStage,
+//     completions: transformedCompletions,
+//     ...transformToBaseModel(id, createdAt, updatedAt),
+//   };
+// }
+
 export function transformToActivityCategory({
   id,
   createdAt,
@@ -124,24 +173,34 @@ export function transformToActivityCategory({
     questions?.map((question: any) =>
       transformToActivityCategoryQuestion(question),
     ) || [];
+  
+  console.log("transformedQuestions: ", transformedQuestions);
 
   const transformedTypePoint = typePoint
     ? transformToActivityCategoryTypePoint(typePoint)
     : undefined;
 
+  console.log("transformedTypePoint: ", transformedTypePoint);
+
   const transformedTypeTime = typeTime
     ? transformToActivityCategoryTypeTime(typeTime)
     : undefined;
 
+  console.log("transformedTypeTime: ", transformedTypeTime);
+
   const transformedTypeStage = typeStage
     ? transformToActivityCategoryTypeStage(typeStage)
     : undefined;
+
+  console.log("transformedTypeStage: ", transformedTypeStage);
 
   const transformedCompletions = completions
     ? completions.map((completion: any) =>
         transformToActivityCategoryCompletion(completion),
       )
     : undefined;
+
+  console.log("transformedCompletions: ", transformedCompletions);
 
   return {
     level,
