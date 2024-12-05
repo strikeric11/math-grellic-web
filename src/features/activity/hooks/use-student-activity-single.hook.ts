@@ -20,6 +20,10 @@ type Result = {
 export function useStudentActivitySingle(): Result {
   const { slug } = useParams();
 
+  //add code to view slug
+
+  console.log("useStudentActivitySingle");
+
   const {
     data: activity,
     isLoading,
