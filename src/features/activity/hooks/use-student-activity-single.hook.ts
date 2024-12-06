@@ -22,7 +22,7 @@ export function useStudentActivitySingle(): Result {
 
   //add code to view slug
 
-  console.log("useStudentActivitySingle");
+  //console.log("useStudentActivitySingle");
 
   const {
     data: activity,

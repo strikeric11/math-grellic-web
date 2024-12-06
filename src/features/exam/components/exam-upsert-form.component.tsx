@@ -339,9 +339,9 @@ export const ExamUpsertForm = memo(function ({
     async (data: ExamUpsertFormData, status?: RecordStatus) => {
       try {
 
-        console.log("data: ", data);
+        // console.log("data: ", data);
 
-        console.log("status: ", status);
+        // console.log("status: ", status);
 
         const targetData = status ? { ...data, status } : data;
         const exam = await onSubmit(targetData);

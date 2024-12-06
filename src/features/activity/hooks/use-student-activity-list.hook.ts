@@ -29,19 +29,19 @@ export function useStudentActivityList(): Result {
       select: (data: any) => {
         const { featuredActivities, otherActivities } = data;
 
-        console.log("useStudentActivityList data: ", data);
+        //console.log("useStudentActivityList data: ", data);
 
         const transformedFeaturedActivities = featuredActivities?.length
           ? featuredActivities.map((item: any) => transformToActivity(item))
           : [];
 
-        console.log("final transformedFeaturedActivities: ", transformedFeaturedActivities);
+        //console.log("final transformedFeaturedActivities: ", transformedFeaturedActivities);
 
         const transformedOtherActivities = otherActivities?.length
           ? otherActivities.map((item: any) => transformToActivity(item))
           : [];
 
-        console.log("final transformedOtherActivities: ", transformedOtherActivities);
+        //console.log("final transformedOtherActivities: ", transformedOtherActivities);
 
         return {
           featuredActivities: transformedFeaturedActivities,

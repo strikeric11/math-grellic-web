@@ -213,29 +213,29 @@ export function transformToActivityCategoryCompletion({
   student,
 }: any): Partial<ActivityCategoryCompletion> {
 
-  console.log("transformToActivityCategoryCompletion");
-  console.log("id: ", id);
-  console.log("createdAt: ", createdAt);
-  console.log("updatedAt: ", updatedAt);
-  console.log("submittedAt: ", submittedAt);
-  console.log("score: ", score);
-  console.log("timeCompletedSeconds: ", timeCompletedSeconds);
-  console.log("questionAnswers: ", questionAnswers);
-  console.log("activityCategory: ", activityCategory);
-  console.log("student: ", student);
+  // console.log("transformToActivityCategoryCompletion");
+  // console.log("id: ", id);
+  // console.log("createdAt: ", createdAt);
+  // console.log("updatedAt: ", updatedAt);
+  // console.log("submittedAt: ", submittedAt);
+  // console.log("score: ", score);
+  // console.log("timeCompletedSeconds: ", timeCompletedSeconds);
+  // console.log("questionAnswers: ", questionAnswers);
+  // console.log("activityCategory: ", activityCategory);
+  // console.log("student: ", student);
 
   const transformedStudent = student
     ? ({ id: student.id } as StudentUserAccount)
     : undefined;
 
-  console.log("transformedStudent: ", transformedStudent);
+  //console.log("transformedStudent: ", transformedStudent);
 
   const transformedQuestionAnswers =
     questionAnswers?.map((answer: any) =>
       transformToActivityCategoryCompletionQuestionAnswer(answer),
     ) || [];
 
-  console.log("transformedQuestionAnswers: ", transformedQuestionAnswers);
+  //console.log("transformedQuestionAnswers: ", transformedQuestionAnswers);
 
   return {
     submittedAt: dayjs(submittedAt).toDate(),

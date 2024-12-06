@@ -51,12 +51,18 @@ export function getActivityBySlugAndCurrentStudentUser(
 
   const queryFn = async (): Promise<any> => {
     const url = `${BASE_URL}/${slug}/students`;
+    //console.log("getActivityBySlugAndCurrentStudentUser");
+    //console.log("BASE_URL: ", BASE_URL);
+    //console.log("slug: ", slug);
     const searchParams = generateSearchParams({ exclude, include });
+
+    //console.log("searchParams: ", searchParams);
 
     try {
       const activity = await kyInstance.get(url, { searchParams }).json();
       return activity;
     } catch (error: any) {
+      //console.log("error: ", error);
       const apiError = await generateApiError(error);
       throw apiError;
     }
