@@ -198,15 +198,19 @@ export function transformToActivityCategory({
 
   //console.log("Before completions");
 
-  //console.log("!completions: ", completions);
+  console.log("!completions: ", completions);
 
-  //console.log("completions type: ",typeof completions);
+  console.log("completions type: ",typeof completions);
+
+  // const transformedCompletions = completions
+  //   ? completions.map((completion: any) =>
+  //       transformToActivityCategoryCompletion(completion),
+  //     )
+  //   : undefined;
 
   const transformedCompletions = completions
-    ? completions.map((completion: any) =>
-        transformToActivityCategoryCompletion(completion),
-      )
-    : undefined;
+  ? transformToActivityCategoryCompletion(completions)
+  : undefined;
 
   //transformedCompletions problem
   console.log("transformedCompletions: ", transformedCompletions);
