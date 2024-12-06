@@ -314,6 +314,53 @@ export function transformToActivityCategoryTypeStage({
   };
 }
 
+// export function transformToActivityCategoryCompletion({
+//   id,
+//   createdAt,
+//   updatedAt,
+//   submittedAt,
+//   score,
+//   timeCompletedSeconds,
+//   questionAnswers,
+//   activityCategory,
+//   student,
+// }: any): Partial<ActivityCategoryCompletion> {
+
+//   console.log("transformToActivityCategoryCompletion");
+//   console.log("id: ", id);
+//   console.log("createdAt: ", createdAt);
+//   console.log("updatedAt: ", updatedAt);
+//   console.log("submittedAt: ", submittedAt);
+//   console.log("score: ", score);
+//   console.log("timeCompletedSeconds: ", timeCompletedSeconds);
+//   console.log("questionAnswers: ", questionAnswers);
+//   console.log("activityCategory: ", activityCategory);
+//   console.log("student: ", student);
+
+//   const transformedStudent = student
+//     ? ({ id: student.id } as StudentUserAccount)
+//     : undefined;
+
+//   console.log("transformedStudent: ", transformedStudent);
+
+//   const transformedQuestionAnswers =
+//     questionAnswers?.map((answer: any) =>
+//       transformToActivityCategoryCompletionQuestionAnswer(answer),
+//     ) || [];
+
+//   console.log("transformedQuestionAnswers: ", transformedQuestionAnswers);
+
+//   return {
+//     submittedAt: dayjs(submittedAt).toDate(),
+//     score,
+//     timeCompletedSeconds,
+//     questionAnswers: transformedQuestionAnswers,
+//     activityCategory,
+//     student: transformedStudent,
+//     ...transformToBaseModel(id, createdAt, updatedAt),
+//   };
+// }
+
 export function transformToActivityCategoryCompletion({
   id,
   createdAt,
@@ -324,7 +371,7 @@ export function transformToActivityCategoryCompletion({
   questionAnswers,
   activityCategory,
   student,
-}: any): Partial<ActivityCategoryCompletion> {
+}: any): ActivityCategoryCompletion {
 
   console.log("transformToActivityCategoryCompletion");
   console.log("id: ", id);
