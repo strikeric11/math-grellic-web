@@ -15,12 +15,42 @@ const gameSrc = {
   [ActivityGame.SlidePuzzle as string]: '/games/slide-puzzle/index.html',
 };
 
+// export const ActivityGameLoader = memo(function ({
+//   className,
+//   activity,
+//   ...moreProps
+// }: Props) {
+//   const gameName = useMemo(() => activity.game.name, [activity]);
+
+//   return (
+//     <div
+//       className={cx(
+//         'w-full max-w-static-full overflow-hidden rounded-lg',
+//         className,
+//       )}
+//       {...moreProps}
+//     >
+//       {gameName && (
+//         <iframe className='aspect-video w-full' src={gameSrc[gameName]} />
+//       )}
+//     </div>
+//   );
+// });
+
 export const ActivityGameLoader = memo(function ({
   className,
   activity,
   ...moreProps
 }: Props) {
   const gameName = useMemo(() => activity.game.name, [activity]);
+
+  const gameUrl = useMemo(() => {
+    if (!gameName) return null;
+    const parentUrl = encodeURIComponent(window.location.href);
+    return `${gameSrc[gameName]}?parentUrl=${parentUrl}`;
+  }, [gameName]);
+
+  console.log("gameUrl: ", gameUrl);
 
   return (
     <div
@@ -30,8 +60,8 @@ export const ActivityGameLoader = memo(function ({
       )}
       {...moreProps}
     >
-      {gameName && (
-        <iframe className='aspect-video w-full' src={gameSrc[gameName]} />
+      {gameUrl && (
+        <iframe className="aspect-video w-full" src={gameUrl} />
       )}
     </div>
   );
