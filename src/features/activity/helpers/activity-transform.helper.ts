@@ -208,8 +208,10 @@ export function transformToActivityCategory({
   //     )
   //   : undefined;
 
-  const transformedCompletions = completions
-  ? transformToActivityCategoryCompletion(completions)
+  const transformedCompletions = Array.isArray(completions)
+  ? completions.map((completion: any) => transformToActivityCategoryCompletion(completion))
+  : completions
+  ? [transformToActivityCategoryCompletion(completions)] // If completions is a single object, wrap it in an array
   : undefined;
 
   //transformedCompletions problem
