@@ -29,40 +29,6 @@ import type {
   ActivityUpsertFormData,
 } from '../models/activity-form-data.model';
 
-// export function transformToActivity({
-//   id,
-//   createdAt,
-//   updatedAt,
-//   status,
-//   orderNumber,
-//   title,
-//   slug,
-//   description,
-//   excerpt,
-//   game,
-//   categories,
-//   score,
-//   rank,
-// }: any): Activity {
-//   const transformedCategories =
-//     categories?.map((category: any) => transformToActivityCategory(category)) ||
-//     [];
-
-//   return {
-//     status,
-//     orderNumber,
-//     title,
-//     slug,
-//     description,
-//     excerpt,
-//     game,
-//     categories: transformedCategories,
-//     score,
-//     rank,
-//     ...transformToBaseModel(id, createdAt, updatedAt),
-//   };
-// }
-
 export function transformToActivity({
   id,
   createdAt,
@@ -78,16 +44,11 @@ export function transformToActivity({
   score,
   rank,
 }: any): Activity {
-  // Log categories to ensure they are in the expected format
-  console.log('Categories:', categories);
 
-  const transformedCategories = categories?.map((category: any) => {
-    const transformedCategory = transformToActivityCategory(category);
-    console.log('Transformed Category:', transformedCategory);  // Log each transformed category
-    return transformedCategory;
-  }) || [];
+  const transformedCategories =
+    categories?.map((category: any) => transformToActivityCategory(category)) ||
+    [];
 
-  // Log the transformed object before returning
   const transformedActivity = {
     status,
     orderNumber,
@@ -102,59 +63,8 @@ export function transformToActivity({
     ...transformToBaseModel(id, createdAt, updatedAt),
   };
 
-  console.log('Transformed Activity:', transformedActivity);
-
   return transformedActivity;
 }
-
-// export function transformToActivityCategory({
-//   id,
-//   createdAt,
-//   updatedAt,
-//   level,
-//   randomizeQuestions,
-//   visibleQuestionsCount,
-//   questions,
-//   typePoint,
-//   typeTime,
-//   typeStage,
-//   completions,
-// }: any): ActivityCategory {
-//   const transformedQuestions =
-//     questions?.map((question: any) =>
-//       transformToActivityCategoryQuestion(question),
-//     ) || [];
-
-//   const transformedTypePoint = typePoint
-//     ? transformToActivityCategoryTypePoint(typePoint)
-//     : undefined;
-
-//   const transformedTypeTime = typeTime
-//     ? transformToActivityCategoryTypeTime(typeTime)
-//     : undefined;
-
-//   const transformedTypeStage = typeStage
-//     ? transformToActivityCategoryTypeStage(typeStage)
-//     : undefined;
-
-//   const transformedCompletions = completions
-//     ? completions.map((completion: any) =>
-//         transformToActivityCategoryCompletion(completion),
-//       )
-//     : undefined;
-
-//   return {
-//     level,
-//     randomizeQuestions,
-//     visibleQuestionsCount,
-//     questions: transformedQuestions,
-//     typePoint: transformedTypePoint,
-//     typeTime: transformedTypeTime,
-//     typeStage: transformedTypeStage,
-//     completions: transformedCompletions,
-//     ...transformToBaseModel(id, createdAt, updatedAt),
-//   };
-// }
 
 export function transformToActivityCategory({
   id,
@@ -186,7 +96,6 @@ export function transformToActivityCategory({
     ? transformToActivityCategoryTypeStage(typeStage)
     : undefined;
 
-  // Ensure `completions` is an array and transform each item
   const transformedCompletions = Array.isArray(completions)
     ? completions.map((completion: any) =>
         transformToActivityCategoryCompletion(completion) as ActivityCategoryCompletion,
