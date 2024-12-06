@@ -174,25 +174,25 @@ export function transformToActivityCategory({
       transformToActivityCategoryQuestion(question),
     ) || [];
   
-  //console.log("transformedQuestions: ", transformedQuestions);
+  console.log("transformedQuestions: ", transformedQuestions);
 
   const transformedTypePoint = typePoint
     ? transformToActivityCategoryTypePoint(typePoint)
     : undefined;
 
-  //console.log("transformedTypePoint: ", transformedTypePoint);
+  console.log("transformedTypePoint: ", transformedTypePoint);
 
   const transformedTypeTime = typeTime
     ? transformToActivityCategoryTypeTime(typeTime)
     : undefined;
 
-  //console.log("transformedTypeTime: ", transformedTypeTime);
+  console.log("transformedTypeTime: ", transformedTypeTime);
 
   const transformedTypeStage = typeStage
     ? transformToActivityCategoryTypeStage(typeStage)
     : undefined;
 
-  //console.log("Before transformedTypeStage");
+  console.log("Before transformedTypeStage");
 
   //console.log("transformedTypeStage: ", transformedTypeStage);
 
@@ -208,7 +208,11 @@ export function transformToActivityCategory({
   //     )
   //   : undefined;
 
-    const transformedCompletions = undefined;
+  const finalCompletions = Array.isArray(completions) ? completions : [completions];
+
+  const transformedCompletions = finalCompletions.map((completion: any) =>
+    transformToActivityCategoryCompletion(completion)
+  );
 
   //transformedCompletions problem
   console.log("transformedCompletions: ", transformedCompletions);
