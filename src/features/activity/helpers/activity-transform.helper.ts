@@ -202,11 +202,13 @@ export function transformToActivityCategory({
 
   console.log("completions type: ",typeof completions);
 
-  const transformedCompletions = completions
-    ? completions.map((completion: any) =>
-        transformToActivityCategoryCompletion(completion),
-      )
-    : undefined;
+  // const transformedCompletions = completions
+  //   ? completions.map((completion: any) =>
+  //       transformToActivityCategoryCompletion(completion),
+  //     )
+  //   : undefined;
+
+    const transformedCompletions = undefined;
 
   //transformedCompletions problem
   console.log("transformedCompletions: ", transformedCompletions);
