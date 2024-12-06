@@ -200,7 +200,7 @@ export function transformToActivityCategory({
 
   console.log("!completions: ", completions);
 
-  console.log("completions type: ",typeof completions);
+  console.log("completions type: ", typeof completions);
 
   // const transformedCompletions = completions
   //   ? completions.map((completion: any) =>
@@ -208,11 +208,9 @@ export function transformToActivityCategory({
   //     )
   //   : undefined;
 
-  const finalCompletions = Array.isArray(completions) ? completions : [completions];
+  //const finalCompletions = Array.isArray(completions) ? completions : [completions];
 
-  const transformedCompletions = finalCompletions.map((completion: any) =>
-    transformToActivityCategoryCompletion(completion)
-  );
+  const transformedCompletions = undefined;
 
   //transformedCompletions problem
   console.log("transformedCompletions: ", transformedCompletions);
@@ -384,28 +382,29 @@ export function transformToActivityCategoryCompletion({
   console.log("activityCategory: ", activityCategory);
   console.log("student: ", student);
 
-  const transformedStudent = student
-    ? ({ id: student.id } as StudentUserAccount)
-    : undefined;
+  // // Ensure transformedStudent is correctly typed
+  // const transformedStudent: StudentUserAccount | undefined = student
+  //   ? { id: student.id } // Directly using the `id` without unnecessary type assertion as value
+  //   : undefined;
 
-  console.log("transformedStudent: ", transformedStudent);
+  // console.log("transformedStudent: ", transformedStudent);
 
-  const transformedQuestionAnswers =
-    questionAnswers?.map((answer: any) =>
-      transformToActivityCategoryCompletionQuestionAnswer(answer),
-    ) || [];
+  // // Mapping over question answers
+  // const transformedQuestionAnswers = questionAnswers?.map((answer: any) =>
+  //   transformToActivityCategoryCompletionQuestionAnswer(answer)
+  // ) || [];
 
-  console.log("transformedQuestionAnswers: ", transformedQuestionAnswers);
+  // console.log("transformedQuestionAnswers: ", transformedQuestionAnswers);
 
-  return {
-    submittedAt: dayjs(submittedAt).toDate(),
-    score,
-    timeCompletedSeconds,
-    questionAnswers: transformedQuestionAnswers,
-    activityCategory,
-    student: transformedStudent,
-    ...transformToBaseModel(id, createdAt, updatedAt),
-  };
+  // return {
+  //   submittedAt: dayjs(submittedAt).toDate(),
+  //   score,
+  //   timeCompletedSeconds,
+  //   questionAnswers: transformedQuestionAnswers,
+  //   activityCategory,
+  //   student: transformedStudent,  // Ensure it's either the transformed student or undefined
+  //   ...transformToBaseModel(id, createdAt, updatedAt),
+  // };
 }
 
 export function transformToActivityCategoryCompletionQuestionAnswer({
