@@ -194,27 +194,19 @@ export function transformToActivityCategory({
 
   //console.log("Before transformedTypeStage");
 
-  console.log("transformedTypeStage: ", transformedTypeStage);
+  //console.log("transformedTypeStage: ", transformedTypeStage);
 
   //console.log("Before completions");
 
-  console.log("!completions: ", completions);
+  //console.log("!completions: ", completions);
 
-  console.log("completions type: ",typeof completions);
-
-  // const transformedCompletions = completions
-  //   ? completions.map((completion: any) =>
-  //       transformToActivityCategoryCompletion(completion),
-  //     )
-  //   : undefined;
+  //console.log("completions type: ",typeof completions);
 
   const transformedCompletions = completions
-  ? Array.isArray(completions)
     ? completions.map((completion: any) =>
         transformToActivityCategoryCompletion(completion),
       )
-    : [transformToActivityCategoryCompletion(completions)] // Wrap single object in array
-  : undefined;
+    : undefined;
 
   //transformedCompletions problem
   console.log("transformedCompletions: ", transformedCompletions);
@@ -316,53 +308,6 @@ export function transformToActivityCategoryTypeStage({
   };
 }
 
-// export function transformToActivityCategoryCompletion({
-//   id,
-//   createdAt,
-//   updatedAt,
-//   submittedAt,
-//   score,
-//   timeCompletedSeconds,
-//   questionAnswers,
-//   activityCategory,
-//   student,
-// }: any): Partial<ActivityCategoryCompletion> {
-
-//   console.log("transformToActivityCategoryCompletion");
-//   console.log("id: ", id);
-//   console.log("createdAt: ", createdAt);
-//   console.log("updatedAt: ", updatedAt);
-//   console.log("submittedAt: ", submittedAt);
-//   console.log("score: ", score);
-//   console.log("timeCompletedSeconds: ", timeCompletedSeconds);
-//   console.log("questionAnswers: ", questionAnswers);
-//   console.log("activityCategory: ", activityCategory);
-//   console.log("student: ", student);
-
-//   const transformedStudent = student
-//     ? ({ id: student.id } as StudentUserAccount)
-//     : undefined;
-
-//   console.log("transformedStudent: ", transformedStudent);
-
-//   const transformedQuestionAnswers =
-//     questionAnswers?.map((answer: any) =>
-//       transformToActivityCategoryCompletionQuestionAnswer(answer),
-//     ) || [];
-
-//   console.log("transformedQuestionAnswers: ", transformedQuestionAnswers);
-
-//   return {
-//     submittedAt: dayjs(submittedAt).toDate(),
-//     score,
-//     timeCompletedSeconds,
-//     questionAnswers: transformedQuestionAnswers,
-//     activityCategory,
-//     student: transformedStudent,
-//     ...transformToBaseModel(id, createdAt, updatedAt),
-//   };
-// }
-
 export function transformToActivityCategoryCompletion({
   id,
   createdAt,
@@ -373,23 +318,40 @@ export function transformToActivityCategoryCompletion({
   questionAnswers,
   activityCategory,
   student,
-}: any): ActivityCategoryCompletion {
+}: any): Partial<ActivityCategoryCompletion> {
+
+  console.log("transformToActivityCategoryCompletion");
+  console.log("id: ", id);
+  console.log("createdAt: ", createdAt);
+  console.log("updatedAt: ", updatedAt);
+  console.log("submittedAt: ", submittedAt);
+  console.log("score: ", score);
+  console.log("timeCompletedSeconds: ", timeCompletedSeconds);
+  console.log("questionAnswers: ", questionAnswers);
+  console.log("activityCategory: ", activityCategory);
+  console.log("student: ", student);
+
   const transformedStudent = student
-    ? ({ id: student.id } as StudentUserAccount) // Ensure type compatibility
+    ? ({ id: student.id } as StudentUserAccount)
     : undefined;
 
-  const transformedQuestionAnswers = questionAnswers?.map((answer: any) =>
-    transformToActivityCategoryCompletionQuestionAnswer(answer),
-  ) || [];
+  console.log("transformedStudent: ", transformedStudent);
+
+  const transformedQuestionAnswers =
+    questionAnswers?.map((answer: any) =>
+      transformToActivityCategoryCompletionQuestionAnswer(answer),
+    ) || [];
+
+  console.log("transformedQuestionAnswers: ", transformedQuestionAnswers);
 
   return {
-    id, // Ensure this is always a number
-    submittedAt: new Date(submittedAt),
-    score: score || null, // Handle cases where score might be undefined
-    timeCompletedSeconds: timeCompletedSeconds || null,
+    submittedAt: dayjs(submittedAt).toDate(),
+    score,
+    timeCompletedSeconds,
     questionAnswers: transformedQuestionAnswers,
-    activityCategory, // Ensure type matches `ActivityCategory`
-    student: transformedStudent!, // Non-null assertion
+    activityCategory,
+    student: transformedStudent,
+    ...transformToBaseModel(id, createdAt, updatedAt),
   };
 }
 
