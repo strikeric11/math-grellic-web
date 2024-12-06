@@ -173,47 +173,27 @@ export function transformToActivityCategory({
     questions?.map((question: any) =>
       transformToActivityCategoryQuestion(question),
     ) || [];
-  
-  console.log("transformedQuestions: ", transformedQuestions);
 
   const transformedTypePoint = typePoint
     ? transformToActivityCategoryTypePoint(typePoint)
     : undefined;
 
-  console.log("transformedTypePoint: ", transformedTypePoint);
-
   const transformedTypeTime = typeTime
     ? transformToActivityCategoryTypeTime(typeTime)
     : undefined;
-
-  console.log("transformedTypeTime: ", transformedTypeTime);
 
   const transformedTypeStage = typeStage
     ? transformToActivityCategoryTypeStage(typeStage)
     : undefined;
 
-  console.log("Before transformedTypeStage");
-
-  //console.log("transformedTypeStage: ", transformedTypeStage);
-
-  //console.log("Before completions");
-
-  console.log("!completions: ", completions);
-
-  console.log("completions type: ", typeof completions);
-
-  // const transformedCompletions = completions
-  //   ? completions.map((completion: any) =>
-  //       transformToActivityCategoryCompletion(completion),
-  //     )
-  //   : undefined;
-
-  //const finalCompletions = Array.isArray(completions) ? completions : [completions];
-
-  const transformedCompletions = undefined;
-
-  //transformedCompletions problem
-  console.log("transformedCompletions: ", transformedCompletions);
+  // Ensure `completions` is an array and transform each item
+  const transformedCompletions = Array.isArray(completions)
+    ? completions.map((completion: any) =>
+        transformToActivityCategoryCompletion(completion) as ActivityCategoryCompletion,
+      )
+    : completions
+    ? [transformToActivityCategoryCompletion(completions) as ActivityCategoryCompletion]
+    : [];
 
   return {
     level,
