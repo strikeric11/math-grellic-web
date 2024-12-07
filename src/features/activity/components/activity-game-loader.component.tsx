@@ -6,6 +6,7 @@ import { ActivityGame, type Activity } from '../models/activity.model';
 
 type Props = ComponentProps<'div'> & {
   activity: Activity;
+  preview?: boolean;
 };
 
 const gameSrc = {
@@ -40,6 +41,7 @@ const gameSrc = {
 export const ActivityGameLoader = memo(function ({
   className,
   activity,
+  preview,
   ...moreProps
 }: Props) {
   const gameName = useMemo(() => activity.game.name, [activity]);
@@ -50,6 +52,8 @@ export const ActivityGameLoader = memo(function ({
   }, [gameName]);
 
   console.log("gameUrl: ", gameUrl);
+
+  console.log("preview: ", preview);
 
   return (
     <div
