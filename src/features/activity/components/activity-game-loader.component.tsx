@@ -46,8 +46,9 @@ export const ActivityGameLoader = memo(function ({
 
   const gameUrl = useMemo(() => {
     if (!gameName) return null;
-    const parentUrl = encodeURIComponent(window.location.href);
-    return `${gameSrc[gameName]}?parentUrl=${parentUrl}`;
+    // const parentUrl = encodeURIComponent(window.location.href);
+    // return `${gameSrc[gameName]}?parentUrl=${parentUrl}`;
+    return `${gameSrc[gameName]}?parentUrl=${window.location.href}`;
   }, [gameName]);
 
   console.log("gameUrl: ", gameUrl);
