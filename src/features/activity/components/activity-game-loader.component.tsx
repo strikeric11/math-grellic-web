@@ -22,12 +22,20 @@ export const ActivityGameLoader = memo(function ({
   preview,
   ...moreProps
 }: Props) {
+
+  console.log("ActivityGameLoader preview: ", preview);
+
   const gameName = useMemo(() => activity.game.name, [activity]);
 
   const gameUrl = useMemo(() => {
     if (!gameName) return null;
-    return `${gameSrc[gameName]}?gameSlug=${activity.slug}`;
-  }, [gameName]);
+    const baseUrl = gameSrc[gameName];
+    const params = new URLSearchParams({
+      gameSlug: activity.slug,
+      preview: preview ? "true" : "false", // Include preview as a query parameter
+    });
+    return `${baseUrl}?${params.toString()}`;
+  }, [gameName, activity.slug, preview]);
 
   return (
     <div
