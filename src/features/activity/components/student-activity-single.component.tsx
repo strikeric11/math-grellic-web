@@ -30,8 +30,10 @@ export const StudentActivitySingle = memo(function ({
   activity,
   preview,
 }: Props) {
-  
+
   console.log("Preview in StudentActivitySingle: ", preview);
+
+  console.log("activity in StudentActivitySingle: ", activity);
 
   const [startActivity, setStartActivity] = useState(false);
   const [localLoading, setLocalLoading] = useState(true);
