@@ -31,6 +31,8 @@ export const StudentActivitySingle = memo(function ({
   preview,
 }: Props) {
 
+  console.log("StudentActivitySingle activity: ", activity);
+
   const [startActivity, setStartActivity] = useState(false);
   const [localLoading, setLocalLoading] = useState(true);
 
