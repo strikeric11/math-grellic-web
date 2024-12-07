@@ -29,10 +29,6 @@ export const ActivityGameLoader = memo(function ({
     return `${gameSrc[gameName]}?gameSlug=${activity.slug}`;
   }, [gameName]);
 
-  console.log("gameUrl: ", gameUrl);
-
-  console.log("preview: ", preview);
-
   return (
     <div
       className={cx(
