@@ -31,6 +31,10 @@ export const StudentActivitySingle = memo(function ({
   preview,
 }: Props) {
 
+  console.log("className: ", className);
+
+  console.log("loading: ", loading);
+
   console.log("StudentActivitySingle activity: ", activity);
 
   const [startActivity, setStartActivity] = useState(false);
