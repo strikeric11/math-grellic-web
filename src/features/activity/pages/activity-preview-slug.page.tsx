@@ -6,6 +6,8 @@ import { useActivityPreviewSlug } from '../hooks/use-activity-preview-slug.hook'
 import { StudentActivitySingle } from '../components/student-activity-single.component';
 
 export function ActivityPreviewSlugPage() {
+  console.log("ActivityPreviewSlugPage called");
+
   const { isDone, setIsDone, titlePreview, activity } =
     useActivityPreviewSlug();
 

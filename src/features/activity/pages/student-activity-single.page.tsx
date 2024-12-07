@@ -7,6 +7,9 @@ import { useStudentActivitySingle } from '../hooks/use-student-activity-single.h
 import { StudentActivitySingle } from '../components/student-activity-single.component';
 
 export function StudentActivitySinglePage() {
+
+  console.log("StudentActivitySinglePage called");
+  
   const { loading, title, activity } = useStudentActivitySingle();
 
   const data: any = useLoaderData();
