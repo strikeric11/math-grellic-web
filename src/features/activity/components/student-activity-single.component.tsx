@@ -31,10 +31,6 @@ export const StudentActivitySingle = memo(function ({
   preview,
 }: Props) {
 
-  console.log("Preview in StudentActivitySingle: ", preview);
-
-  console.log("activity in StudentActivitySingle: ", activity);
-
   const [startActivity, setStartActivity] = useState(false);
   const [localLoading, setLocalLoading] = useState(true);
 
@@ -140,7 +136,7 @@ export const StudentActivitySingle = memo(function ({
               </BaseButton>
             </motion.div>
           ) : (
-            <ActivityGameLoader className='mx-auto' activity={activity} preview={preview} />
+            <ActivityGameLoader className='mx-auto' activity={activity}/>
           )}
         </>
       )}
