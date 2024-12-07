@@ -22,6 +22,7 @@ export function StudentActivitySinglePage() {
             className='mx-auto py-5'
             activity={activity}
             loading={loading}
+            preview={false}
           />
         )}
       </BaseScene>

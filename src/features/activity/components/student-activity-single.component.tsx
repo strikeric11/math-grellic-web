@@ -21,7 +21,7 @@ import { type Activity, ActivityCategoryType } from '../models/activity.model';
 type Props = ComponentProps<'div'> & {
   activity: Activity;
   loading?: boolean;
-  preview?: boolean;
+  preview: boolean;
 };
 
 export const StudentActivitySingle = memo(function ({
@@ -31,11 +31,11 @@ export const StudentActivitySingle = memo(function ({
   preview,
 }: Props) {
 
-  console.log("className: ", className);
+  // console.log("className: ", className);
 
-  console.log("loading: ", loading);
+  // console.log("loading: ", loading);
 
-  console.log("StudentActivitySingle activity: ", activity);
+  // console.log("StudentActivitySingle activity: ", activity);
 
   const [startActivity, setStartActivity] = useState(false);
   const [localLoading, setLocalLoading] = useState(true);
@@ -142,7 +142,11 @@ export const StudentActivitySingle = memo(function ({
               </BaseButton>
             </motion.div>
           ) : (
-            <ActivityGameLoader className='mx-auto' activity={activity}/>
+            <ActivityGameLoader 
+              className='mx-auto' 
+              activity={activity}
+              preview={preview}
+            />
           )}
         </>
       )}

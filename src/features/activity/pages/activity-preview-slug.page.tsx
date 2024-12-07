@@ -17,7 +17,11 @@ export function ActivityPreviewSlugPage() {
     <BaseDataSuspense resolve={data?.main}>
       <BaseScene title={titlePreview} breadcrumbsHidden isClose>
         {activity && (
-          <StudentActivitySingle className='mx-auto py-5' activity={activity} />
+          <StudentActivitySingle 
+            className='mx-auto py-5' 
+            activity={activity} 
+            preview={true}
+          />
         )}
       </BaseScene>
     </BaseDataSuspense>
