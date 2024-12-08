@@ -39,7 +39,12 @@ export function getQuestionImageUrl(filePath: string) {
     console.error('Error fetching public URL: ', err);
   }
 
+  console.log("SUPABASE_URL: ", SUPABASE_URL);
+
+  console.log("STORAGE_BASE_PATH: ", STORAGE_BASE_PATH);
+
   return `${SUPABASE_URL}/${STORAGE_BASE_PATH}/${filePath}?${Date.now()}`;
+
 }
 
 // export async function getQuestionImageUrl(filePath: string) {
