@@ -99,24 +99,26 @@ export function useAuth(): Result {
       console.log("email: ", email);
       console.log("password: ", password);
 
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+      // const { error } = await supabase.auth.signInWithPassword({
+      //   email,
+      //   password,
+      // });
 
-      console.log("error88: ", error);
+      // console.log("error88: ", error);
 
-      if (error) {
-        throw generateError(
-          {
-            4: 'Email or password is incorrect 1',
-            5: 'We have encountered an internal error',
-          },
-          error.status,
-        );
-      }
+      // if (error) {
+      //   throw generateError(
+      //     {
+      //       4: 'Email or password is incorrect 1',
+      //       5: 'We have encountered an internal error',
+      //     },
+      //     error.status,
+      //   );
+      // }
 
       const currentUser = await getUser();
+
+      console.log("currentUser: ", currentUser);
 
       if (!currentUser) {
         throw new Error('Email or password is incorrect 2');
