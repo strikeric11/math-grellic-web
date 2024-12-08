@@ -26,13 +26,15 @@ export function getQuestionImageUrl(filePath: string) {
       .storage
       .from('math-grellic-bucket')
       .getPublicUrl(filePath);
+
+    console.log("getQuestionImageUrl data: ", data);
     
     if (!data || !data.publicUrl) {
       throw new Error('Failed to get public URL. Check if the file path or bucket is correct.');
     }
   
-    //console.log("data.publicUrl: ", data.publicUrl);  // Log the public URL to the console
-    //console.log("filePath: ", filePath);
+    console.log("data.publicUrl: ", data.publicUrl);  // Log the public URL to the console
+    console.log("filePath: ", filePath);
   } catch (err) {
     console.error('Error fetching public URL: ', err);
   }
