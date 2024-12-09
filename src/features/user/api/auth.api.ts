@@ -31,7 +31,7 @@ export function getCurrentUser(
       console.log("getCurrentUser user: ", user);
       return user;
     } catch (error: any) {
-      console.log("getCurrentUser error: ", getCurrentUser);
+      console.log("getCurrentUser error: ", error);
       const apiError = await generateApiError(error);
       throw apiError;
     }
