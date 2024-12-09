@@ -84,6 +84,8 @@ export function useAuth(): Result {
   const getUser = useCallback(async () => {
     const { data } = await fetchUser();
 
+    console.log("getUser data: ", data);
+
     if (!data) {
       logout();
     }

@@ -28,8 +28,10 @@ export function getCurrentUser(
 
     try {
       const user = await kyInstance.get(url).json();
+      console.log("getCurrentUser user: ", user);
       return user;
     } catch (error: any) {
+      console.log("getCurrentUser: ", getCurrentUser);
       const apiError = await generateApiError(error);
       throw apiError;
     }
