@@ -21,6 +21,9 @@ export const kyInstance = ky.extend({
         if (accessToken) {
           options.headers.set('Authorization', `Bearer ${accessToken}`);
         }
+
+        console.log("Request Headers:", options.headers);
+        
       },
     ],
     afterResponse: [],
