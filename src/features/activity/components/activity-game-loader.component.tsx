@@ -28,6 +28,25 @@ export const ActivityGameLoader = memo(function ({
 
   const gameName = useMemo(() => activity.game.name, [activity]);
 
+  //Test detect os 02/09/2025
+
+  // const getOS = () => {
+  //   const userAgent = window.navigator.userAgent;
+  //   if (userAgent.includes("Windows")) return "windows";
+  //   if (userAgent.includes("Mac")) return "mac";
+  //   if (userAgent.includes("Linux")) return "linux";
+  //   if (userAgent.includes("Android")) return "android";
+  //   if (/iPad|iPhone|iPod/.test(userAgent)) return "ios";
+  //   return "unknown";
+  // };
+  
+  // const osType = getOS();
+
+
+
+  /////////
+
+
   const gameUrl = useMemo(() => {
     if (!gameName) return null;
     const baseUrl = gameSrc[gameName];
