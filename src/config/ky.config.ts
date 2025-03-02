@@ -11,18 +11,12 @@ export const kyInstance = ky.extend({
         // Get token from localstorage
         const token = JSON.parse(localStorage.getItem(TOKEN_KEY) || '{}') || {};
 
-        console.log("token: ", token);
-
         const { access_token: accessToken } = token;
         // If token is present then add authorization to header
-
-        console.log("accessToken: ", accessToken);
 
         if (accessToken) {
           options.headers.set('Authorization', `Bearer ${accessToken}`);
         }
-
-        console.log("Request Headers:", options.headers);
         
       },
     ],

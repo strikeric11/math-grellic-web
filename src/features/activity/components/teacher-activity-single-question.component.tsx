@@ -31,7 +31,7 @@ const Choice = memo(function ({
       textType === ExActTextType.Image ? getQuestionImageUrl(text) : text;
 
     if (textType === ExActTextType.Image) {
-      console.log('Image URL:', value); // Logging the image URL
+      //console.log('Image URL:', value);
     }
 
     switch (textType) {

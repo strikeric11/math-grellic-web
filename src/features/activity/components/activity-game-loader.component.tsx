@@ -24,27 +24,9 @@ export const ActivityGameLoader = memo(function ({
   ...moreProps
 }: Props) {
 
-  console.log("ActivityGameLoader preview: ", preview);
-
   const gameName = useMemo(() => activity.game.name, [activity]);
 
-  //Test detect os 02/09/2025
-
-  const getOS = () => {
-    const userAgent = window.navigator.userAgent;
-    if (userAgent.includes("Windows")) return "windows";
-    if (userAgent.includes("Mac")) return "mac";
-    if (userAgent.includes("Linux")) return "linux";
-    if (userAgent.includes("Android")) return "android";
-    if (/iPad|iPhone|iPod/.test(userAgent)) return "ios";
-    return "unknown";
-  };
-
-  /////////
-
-
   const gameUrl = useMemo(() => {
-    console.log("getOS: ", getOS);
     if (!gameName) return null;
     const baseUrl = gameSrc[gameName];
     const params = new URLSearchParams({
