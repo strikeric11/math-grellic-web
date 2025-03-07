@@ -236,7 +236,7 @@ export const StudentExamTakeForm = memo(function ({
             loading={isSubmitting || formLoading}
             rightIconName='check-circle'
             onClick={handleSubmit(submitForm, (errors) => {
-              console.log(errors);
+              //console.log(errors);
             })}
           >
             Confirm

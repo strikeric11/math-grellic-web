@@ -84,7 +84,7 @@ export function useAuth(): Result {
   const getUser = useCallback(async () => {
     const { data } = await fetchUser();
 
-    console.log("getUser data: ", data);
+    //console.log("getUser data: ", data);
 
     if (!data) {
       logout();
@@ -98,15 +98,15 @@ export function useAuth(): Result {
     
     async ({ email, password }: AuthCredentials) => {
 
-      console.log("email: ", email);
-      console.log("password: ", password);
+      //console.log("email: ", email);
+      //console.log("password: ", password);
 
       const { error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
 
-      console.log("error88: ", error);
+      //console.log("error88: ", error);
 
       if (error) {
         throw generateError(
@@ -120,7 +120,7 @@ export function useAuth(): Result {
 
       const currentUser = await getUser();
 
-      console.log("currentUser: ", currentUser);
+      //console.log("currentUser: ", currentUser);
 
       if (!currentUser) {
         throw new Error('Email or password is incorrect 2');

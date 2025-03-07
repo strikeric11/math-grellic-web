@@ -27,21 +27,21 @@ export function getQuestionImageUrl(filePath: string) {
       .from('math-grellic-bucket')
       .getPublicUrl(filePath);
 
-    console.log("getQuestionImageUrl data: ", data);
+    //console.log("getQuestionImageUrl data: ", data);
     
     if (!data || !data.publicUrl) {
       throw new Error('Failed to get public URL. Check if the file path or bucket is correct.');
     }
   
-    console.log("data.publicUrl: ", data.publicUrl);  // Log the public URL to the console
-    console.log("filePath: ", filePath);
+    //console.log("data.publicUrl: ", data.publicUrl);  // Log the public URL to the console
+    //console.log("filePath: ", filePath);
   } catch (err) {
     console.error('Error fetching public URL: ', err);
   }
 
-  console.log("SUPABASE_URL: ", SUPABASE_URL);
+  //console.log("SUPABASE_URL: ", SUPABASE_URL);
 
-  console.log("STORAGE_BASE_PATH: ", STORAGE_BASE_PATH);
+  //console.log("STORAGE_BASE_PATH: ", STORAGE_BASE_PATH);
 
   return `${SUPABASE_URL}/${STORAGE_BASE_PATH}/${filePath}?${Date.now()}`;
 

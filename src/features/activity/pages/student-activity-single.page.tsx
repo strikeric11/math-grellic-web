@@ -8,7 +8,7 @@ import { StudentActivitySingle } from '../components/student-activity-single.com
 
 export function StudentActivitySinglePage() {
 
-  console.log("StudentActivitySinglePage called");
+  //console.log("StudentActivitySinglePage called");
   
   const { loading, title, activity } = useStudentActivitySingle();
 

@@ -156,15 +156,15 @@ export function getStudentActivityWithCompletionsBySlugAndCurrentStudentUser(
 ) {
   const { slug, exclude, include } = keys;
 
-  console.log("getStudentActivityWithCompletionsBySlugAndCurrentStudentUser");
+  // console.log("getStudentActivityWithCompletionsBySlugAndCurrentStudentUser");
 
-  console.log("slug: ", slug);
+  // console.log("slug: ", slug);
 
-  console.log("slug: ", exclude);
+  // console.log("slug: ", exclude);
 
-  console.log("slug: ", include);
+  // console.log("slug: ", include);
 
-  console.log("BASE_URL: ", BASE_URL);
+  // console.log("BASE_URL: ", BASE_URL);
 
   const queryFn = async (): Promise<any> => {
     const url = `${BASE_URL}/activities/${slug}`;

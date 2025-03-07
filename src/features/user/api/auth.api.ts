@@ -28,10 +28,10 @@ export function getCurrentUser(
 
     try {
       const user = await kyInstance.get(url).json();
-      console.log("getCurrentUser user: ", user);
+      //console.log("getCurrentUser user: ", user);
       return user;
     } catch (error: any) {
-      console.log("getCurrentUser error: ", error);
+      //console.log("getCurrentUser error: ", error);
       const apiError = await generateApiError(error);
       throw apiError;
     }
@@ -54,7 +54,7 @@ export function registerTeacherUser(
     const url = `${BASE_URL}/teachers/register`;
     // TEMP
 
-    console.log("url: ", url);
+    //console.log("url: ", url);
 
     const json = transformToTeacherUserCreateDto({
       ...data,
@@ -64,11 +64,11 @@ export function registerTeacherUser(
     try {
       const user = await kyInstance.post(url, { json }).json();
 
-      console.log("user: ", user);
+      //console.log("user: ", user);
 
       return transformToUser(user);
     } catch (error: any) {
-      console.log("errorr: ", error);
+      //console.log("errorr: ", error);
       const apiError = await generateApiError(error);
       throw apiError;
     }

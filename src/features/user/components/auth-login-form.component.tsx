@@ -59,18 +59,18 @@ export const AuthLoginForm = memo(function ({
 
   const submitForm = useCallback(
     async (data: AuthCredentials) => {
-      console.log('Sign In button clicked with:', data);
+      //console.log('Sign In button clicked with:', data);
       try {
         const user = await login(data);
 
-        console.log("user log in: ", user);
+        //console.log("user log in: ", user);
 
         const to = generateDashboardPath(user.role);
         // Set is done and navigate to user role's dashboard
         setIsDone(true);
         navigate(to);
       } catch (error: any) {
-        console.log("error1: ", error);
+        //console.log("error1: ", error);
         reset({ email: getValues('email'), password: '' });
         toast.error(error.message);
       }
