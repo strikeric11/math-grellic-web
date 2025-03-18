@@ -15,7 +15,7 @@ const gameSrc = {
   [ActivityGame.EscapeRoom as string]: '/games/escape-room/index.html',
   [ActivityGame.SlidePuzzle as string]: '/games/slide-puzzle/index.html',
 };
-
+///
 export const ActivityGameLoader = memo(function ({
   className,
   activity,
