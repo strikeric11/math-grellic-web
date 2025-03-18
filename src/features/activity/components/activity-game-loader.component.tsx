@@ -6,7 +6,6 @@ import { ActivityGame, type Activity } from '../models/activity.model';
 
 type Props = ComponentProps<'div'> & {
   activity: Activity;
-  preview?: boolean;
 };
 
 const gameSrc = {
@@ -20,21 +19,9 @@ const gameSrc = {
 export const ActivityGameLoader = memo(function ({
   className,
   activity,
-  preview,
   ...moreProps
 }: Props) {
-
   const gameName = useMemo(() => activity.game.name, [activity]);
-
-  const gameUrl = useMemo(() => {
-    if (!gameName) return null;
-    const baseUrl = gameSrc[gameName];
-    const params = new URLSearchParams({
-      gameSlug: activity.slug,
-      preview: preview ? "true" : "false", // Include preview as a query parameter
-    });
-    return `${baseUrl}?${params.toString()}`;
-  }, [gameName, activity.slug, preview]);
 
   return (
     <div
@@ -44,8 +31,8 @@ export const ActivityGameLoader = memo(function ({
       )}
       {...moreProps}
     >
-      {gameUrl && (
-        <iframe className="aspect-video w-full" src={gameUrl} />
+      {gameName && (
+        <iframe className='aspect-video w-full' src={gameSrc[gameName]} />
       )}
     </div>
   );
