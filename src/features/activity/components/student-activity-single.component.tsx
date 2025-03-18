@@ -142,11 +142,7 @@ export const StudentActivitySingle = memo(function ({
               </BaseButton>
             </motion.div>
           ) : (
-            <ActivityGameLoader 
-              className='mx-auto' 
-              activity={activity}
-              preview={preview}
-            />
+            <ActivityGameLoader className='mx-auto' activity={activity} />
           )}
         </>
       )}
